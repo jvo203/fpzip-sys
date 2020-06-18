@@ -32,7 +32,9 @@ mod tests {
         let mut buffer: Vec<u8> = vec![0; bufsize];
 
         /* compress to memory */
-        let fpz = unsafe { fpzip_write_to_buffer(buffer.as_mut_ptr() as *mut std::ffi::c_void, bufsize as u64) };
+        let fpz = unsafe {
+            fpzip_write_to_buffer(buffer.as_mut_ptr() as *mut std::ffi::c_void, bufsize as u64)
+        };
 
         unsafe {
             (*fpz).type_ = FPZIP_TYPE_FLOAT as i32;
@@ -47,7 +49,7 @@ mod tests {
 
         if stat == 0 {
             assert!(false)
-        }; 
+        };
 
         let outbytes = unsafe { fpzip_write(fpz, buffer.as_ptr() as *const std::ffi::c_void) };
 
