@@ -1,10 +1,9 @@
 # fpzip-sys
 Raw Rust bindings to FPZIP (https://github.com/LLNL/fpzip).
 
-An example compression function:
+An example compression function for a 1D f32 vector:
 
 ```
-
 fn fpzip_compress(src: &Vec<f32>, high_quality: bool) -> Option<Vec<u8>> {
     let prec = if high_quality {
         24
