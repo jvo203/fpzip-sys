@@ -51,7 +51,7 @@ mod tests {
             assert!(false)
         };
 
-        let outbytes = unsafe { fpzip_write(fpz, buffer.as_ptr() as *const std::ffi::c_void) };
+        let outbytes = unsafe { fpzip_write(fpz, array.as_ptr() as *const std::ffi::c_void) };
 
         if outbytes == 0 {
             assert!(false)
