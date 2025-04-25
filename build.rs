@@ -6,7 +6,9 @@ use std::path::PathBuf;
 
 fn main() {
     //build fpzip with cmake
-    let fpzip = cmake::build("fpzip");
+    let fpzip = cmake::Config::new("fpzip")
+        .define("CMAKE_POLICY_VERSION_MINIMUM", "3.5")
+        .build();
 
     println!("cargo:rustc-link-search=native={}/lib", fpzip.display());
     println!("cargo:rustc-link-search=native={}/lib64", fpzip.display());
